@@ -1,0 +1,102 @@
+import 'package:dart_deneme/dart_deneme.dart' as dart_deneme;
+
+void main(List<String> arguments) {
+  /*String text = "Hello world";
+  print(text);
+  int number = 5;
+  print(number);
+  bool result = false;
+  print(result);
+  double price = 1.5;
+  print(price);
+  dynamic data;
+  print(data);
+
+  dart_deneme.Test test = dart_deneme.Test("deneme");
+  print(test.text);
+  //print('Hello world: ${dart_deneme.calculate()}!');
+  
+  dart_deneme.Personel personel =
+      dart_deneme.Personel("firstName", "lastName", "5757575757575");
+  print(personel.firstName);
+  print(personel.lastName);
+  print(personel.fullName);
+  print(personel.phoneNumber);
+  -------------------------------------------
+  */
+
+/*
+  dart_deneme.Araba araba = dart_deneme.Araba(
+    "Mercedes",
+    "Sedan",
+    true,
+    "dört",
+    null,
+    110,
+  );
+  print("TopSpeed: ${araba.hoursePower}");
+  print(araba.model);
+  print(araba.brand);
+  print(araba.bodyType);
+  print(araba.sunRoof ? "var" : "yok");
+  print(araba.hoursePower == null ? "yok" : araba.hoursePower! * 2);
+
+  ----------------------------------------
+  */
+
+/*
+----------------------------------------
+  List<int> notlar = [65, 75, 55, 5, 15, 60, 95, 80];
+  notlar.add(85);
+  notlar.addAll([90, 3]);
+  int toplam = 0;
+  int toplam2 = 0;
+  int toplam3 = 0;
+  int toplam4 = 0;
+  for (var i = 0; i < notlar.length; i++) {
+    toplam += notlar[i];
+  }
+  print(toplam / notlar.length);
+
+  for (var element in notlar) {
+    toplam2 += element;
+  }
+  print(toplam2 / notlar.length);
+
+  notlar.forEach((sayi) {
+    toplam3 += sayi;
+  });
+  print(toplam3 / notlar.length);
+
+  toplam4 = notlar.fold(0, (prev, data) {
+    return prev + data;
+  });
+  double ortalama = toplam4 / notlar.length;
+  print("oratalama =>  ${ortalama}");
+
+  List<int> gecen_notlar = notlar.where((not) => not >= ortalama).toList();
+  int gecen_kisis_sayisi = gecen_notlar.length;
+  print("Geçen Kişi sayısı: ${gecen_kisis_sayisi} ");
+  print("Kalan Kişi sayısı: ${notlar.length - gecen_kisis_sayisi} ");
+  print("Geçen Notlar : ${gecen_notlar} ");
+ ----------------------------------------
+  */
+  Map<int, String> map = {1: "Ocak", 2: "Şubat"};
+
+  print(map[2]);
+  String zaman = "sabah";
+
+  switch (zaman) {
+    case "sabah":
+      print("Günaydın.");
+      break;
+    case "oglen":
+      print("Tünaydın.");
+      break;
+    case "aksam":
+      print("iyi akşamlar.");
+      break;
+    default:
+  }
+}
+
