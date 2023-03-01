@@ -1,0 +1,22 @@
+import 'package:dart_application_1_odev/dart_application_1_odev.dart' as dart_app_odev;
+
+void main(List arguments) {
+print(dart_app_odev.getCountryPhoneCount("+15"));
+}
+int getCountryPhoneCount(String code){
+int countContainsPhoneCode = 0;
+
+//yöntem 1
+List phonesOne = ["+90 5214578544","+15 421478511","+90 532145785","+44 2541245877","+44 5651651651"];
+phonesOne.forEach((phone) {
+//if(phone.contains(code)){countContainsPhoneCode++;}
+if(phone.split(" ")[0].trim()==code){countContainsPhoneCode++;}
+});
+
+//yöntem 2
+Map<String,String> phonesTwo = {"5214578544":"+90","421478511":"+15","532145785":"+90","2541245877":"+44","5651651651":"+44"};
+for (var phone in phonesTwo.values) {
+if(phone == code){countContainsPhoneCode++;}
+}
+return countContainsPhoneCode;
+}
