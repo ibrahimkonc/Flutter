@@ -1,4 +1,20 @@
+// ignore_for_file: camel_case_types
+
 import 'package:dart_deneme/dart_deneme.dart' as dart_deneme;
+
+enum fuelType { petrol, diesel, hybrid, ev }
+
+enum gearboxType { auto, manual, semiAuto }
+
+enum driveTrain { fourWheel, frontWheel, rearWheel }
+
+// Map pricePoint = {
+//   "b": "\$30k-\$40k",
+//   "c": "\$40k-\$50k",
+//   "d": "\$50k-\$65k",
+//   "e": "\$65k-\$85k",
+//   "s": "\$85k+",
+// };
 
 void main(List<String> arguments) {
   /*String text = "Hello world";
@@ -80,7 +96,7 @@ void main(List<String> arguments) {
   print("Kalan Kişi sayısı: ${notlar.length - gecen_kisis_sayisi} ");
   print("Geçen Notlar : ${gecen_notlar} ");
  ----------------------------------------
-  */
+ 
   Map<int, String> map = {1: "Ocak", 2: "Şubat"};
 
   print(map[2]);
@@ -98,5 +114,135 @@ void main(List<String> arguments) {
       break;
     default:
   }
-}
+    */
 
+  print(dart_deneme.getCountryPhoneCount("+15"));
+
+  var cars = [
+    {
+      "brand": "Porsche 911",
+      "fuel-type": fuelType.petrol,
+      "drive-train": driveTrain.rearWheel,
+      "seat-count": 2,
+      "gearbox": gearboxType.semiAuto,
+      "color": "Black",
+      //"priceGap": pricePoint[1],
+      "consumption": 9,
+      "0-100": 2.9
+    },
+    {
+      "brand": "BMW M4 Comp",
+      "fuel-type": fuelType.petrol,
+      "seat-count": 4,
+      "drive-train": driveTrain.rearWheel,
+      "gearbox": gearboxType.semiAuto,
+      "color": "Black",
+      //"priceGap": pricePoint[1],
+      "consumption": 8.4,
+      "0-100": 3.9
+    },
+    {
+      "brand": "Audi RS5",
+      "fuel-type": fuelType.petrol,
+      "seat-count": 4,
+      "drive-train": driveTrain.fourWheel,
+      "gearbox": gearboxType.auto,
+      "color": "White",
+      //"priceGap": pricePoint[1],
+      "consumption": 8,
+      "0-100": 3.5
+    },
+  ];
+
+  //TODO define scope
+  //STRING brand and model
+  //ENUM fuelt type => petrol, diesel, hybrid, ev
+  //LISTdrive-train => 4 wheel, front wheels, rear wheels
+  //INT seat count
+  //ENUM gearbox => auto, semi-auto, manual
+  //STRING color
+  //MAP price gap => $30k-$40k, $40k-$50k, $60k-$80k, $80k+
+  //MAP segment (b, c, d, e , s)
+  //DOUBLE consumption in l/100km
+  //INT max speed
+  //DOUBLE 0-100km/s
+
+  //DEFINITON OF DONE: FILTER INPUT VALUES, RETURN REST
+
+  //functions practice:
+
+  //----------------- 1. yöntem
+  List filterCars(
+      String? brand,
+      String? color,
+      fuelType? fuelType,
+      int? seatCount,
+      driveTrain? driveTrain,
+      gearboxType? gearboxType,
+      double? consumption,
+      double? zeroToHundred) {
+    var data = cars
+        .where((elem) =>
+            (elem["brand"].toString().toLowerCase() ==
+                    brand.toString().toLowerCase() ||
+                brand == null) &&
+            (elem["color"].toString().toLowerCase() ==
+                    color.toString().toLowerCase() ||
+                color == null) &&
+            (elem["fuel-type"] == fuelType || fuelType == null) &&
+            (elem["seat-count"] == seatCount || seatCount == null) &&
+            (elem["drive-train"] == driveTrain || driveTrain == null) &&
+            (elem["gearbox"] == gearboxType || gearboxType == null) &&
+            (elem["consumption"] == consumption || consumption == null) &&
+            (elem["0-100"] == zeroToHundred || zeroToHundred == null))
+        .toList();
+    return data;
+  }
+
+//----------------- 2. yöntem
+  List filterCars2(
+      String? brand,
+      String? color,
+      fuelType? fuelType,
+      int? seatCount,
+      driveTrain? driveTrain,
+      gearboxType? gearboxType,
+      double? consumption,
+      double? zeroToHundred) {
+    var data = [];
+
+    for (var elem in cars) {
+      if ((elem["brand"].toString().toLowerCase() ==
+                  brand.toString().toLowerCase() ||
+              brand == null) &&
+          (elem["color"].toString().toLowerCase() ==
+                  color.toString().toLowerCase() ||
+              color == null) &&
+          (elem["fuel-type"] == fuelType || fuelType == null) &&
+          (elem["seat-count"] == seatCount || seatCount == null) &&
+          (elem["drive-train"] == driveTrain || driveTrain == null) &&
+          (elem["gearbox"] == gearboxType || gearboxType == null) &&
+          (elem["consumption"] == consumption || consumption == null) &&
+          (elem["0-100"] == zeroToHundred || zeroToHundred == null)) {
+        data.add(elem);
+      }
+    }
+
+    return data;
+  }
+
+//----------------- Cevap
+  var response = filterCars(
+    null,
+    "Black",
+    null,
+    4,
+    null,
+    null,
+    null,
+    null,
+  );
+  response.forEach((element) {
+    print(element);
+  });
+}
